@@ -603,7 +603,7 @@ NSInteger const MZFayeClientDefaultMaximumAttempts = 5;
                         
                         id fayeErrorOrNull = fayeMessage.error;
                         if (fayeErrorOrNull == nil) fayeErrorOrNull = NSNull.null;
-                        NSError *error = [NSError errorWithDomain:MZFayeClientBayeuxErrorDomain code:-101 userInfo:@{NSLocalizedDescriptionKey : @"Faye server rejected published message", NSLocalizedFailureReasonErrorKey: fayeErrorOrNull}];
+                        NSError *error = [NSError errorWithDomain:MZFayeClientBayeuxErrorDomain code:MZFayeClientBayeuxErrorReceivedFailureStatus userInfo:@{NSLocalizedDescriptionKey : @"Faye server rejected published message", NSLocalizedFailureReasonErrorKey: fayeErrorOrNull}];
                         
                         failureHandler(error);
                     }
