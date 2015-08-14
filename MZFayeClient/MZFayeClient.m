@@ -591,7 +591,7 @@ NSInteger const MZFayeClientDefaultMaximumAttempts = 5;
                 
                 NSDictionary *handlers = self.pendingMessages[fayeMessage.Id];
                 
-                if (fayeMessage.successful) {
+                if ([fayeMessage.successful boolValue]) {
                     if (handlers[@YES] != nil) {
                         MZPublishSuccessHandler successHandler = handlers[@YES];
                         successHandler();
