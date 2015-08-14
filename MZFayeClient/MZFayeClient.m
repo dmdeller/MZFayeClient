@@ -339,7 +339,7 @@ NSInteger const MZFayeClientDefaultMaximumAttempts = 5;
 
 - (void)sendMessage:(NSDictionary *)message toChannel:(NSString *)channel success:(MZPublishSuccessHandler)successHandler failure:(MZPublishFailureHandler)failureHandler
 {
-    [self sendBayeuxPublishMessage:message toChannel:channel usingExtension:nil success:nil failure:nil];
+    [self sendBayeuxPublishMessage:message toChannel:channel usingExtension:nil success:successHandler failure:failureHandler];
 }
 
 - (void)sendMessage:(NSDictionary *)message toChannel:(NSString *)channel usingExtension:(NSDictionary *)extension
@@ -349,7 +349,7 @@ NSInteger const MZFayeClientDefaultMaximumAttempts = 5;
 
 - (void)sendMessage:(NSDictionary *)message toChannel:(NSString *)channel usingExtension:(NSDictionary *)extension success:(MZPublishSuccessHandler)successHandler failure:(MZPublishFailureHandler)failureHandler
 {
-    [self sendBayeuxPublishMessage:message toChannel:channel usingExtension:extension success:nil failure:nil];
+    [self sendBayeuxPublishMessage:message toChannel:channel usingExtension:extension success:successHandler failure:failureHandler];
 }
 
 - (BOOL)connectToURL:(NSURL *)url
