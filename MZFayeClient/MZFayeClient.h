@@ -151,9 +151,13 @@ typedef void (^MZFayeClientFailureHandler)(NSError *error);
 - (void)subscribeToChannel:(NSString *)channel usingBlock:(MZFayeClientSubscriptionHandler)subscriptionHandler;
 - (void)unsubscribeFromChannel:(NSString *)channel;
 
-- (BOOL)connectToURL:(NSURL *)url;
-- (BOOL)connect;
+- (BOOL)connectToURL:(NSURL *)url DEPRECATED_MSG_ATTRIBUTE("Use -connect:failure:");
+- (BOOL)connect DEPRECATED_MSG_ATTRIBUTE("Use -connect:failure:");
 
-- (void)disconnect;
+- (void)connect:(MZFayeClientSuccessHandler)successHandler failure:(MZFayeClientFailureHandler)failureHandler;
+
+- (void)disconnect DEPRECATED_MSG_ATTRIBUTE("Use -disconnect:failure:");
+
+- (void)disconnect:(MZFayeClientSuccessHandler)successHandler failure:(MZFayeClientFailureHandler)failureHandler;
 
 @end
