@@ -141,6 +141,8 @@ NSInteger const MZFayeClientDefaultMaximumAttempts = 5;
     if (self = [super init]) {
 
         _channelExtensions = [NSMutableDictionary dictionary];
+        _channelSubscribeHandlers = [NSMutableDictionary dictionary];
+        _channelUnsubscribeHandlers = [NSMutableDictionary dictionary];
         _channelReceivedMessageHandlers = [NSMutableDictionary dictionary];
         _sendMessageHandlers = [NSMutableDictionary dictionary];
         _pendingChannelSubscriptions = [NSMutableSet set];
